@@ -1,0 +1,23 @@
+{
+  "name": "agency73",
+  "version": "1.0.0",
+  "description": "Please see below for the sample tests to complete and then send to Patrick at patrick@agency73.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "extract": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heloflier/agency73-test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/heloflier/agency73-test/issues"
+  },
+  "homepage": "https://github.com/heloflier/agency73-test#readme",
+  "dependencies": {
+    "axios": "^0.18.0"
+  }
+}

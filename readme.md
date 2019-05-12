@@ -1,6 +1,6 @@
-# Agency73 Coding Test
-
 Please see below for the sample tests to complete and then send to Patrick at patrick@agency73.com
+
+# Agency73 Coding Test
 
 ### Node.js
 
@@ -24,3 +24,13 @@ The service should be able to run locally and tested via some tool like cURL
 * Create a React application as an interface to specify which 10 websites the user wants to scrape the HTML from.
 * This should be runnable locally via a web browser, and should consume the REST service previously created.
 
+---
+
+## Solutions:
+
+1. 
+On the master branch, 10 preselected sites are being scraped. The html is returned in text files inside a 'files' subdirectory. Note: the data has not been manipulated in any way, as it was not required.
+
+To run, type: 
+
+```npm run extract```
