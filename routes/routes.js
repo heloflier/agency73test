@@ -3,7 +3,24 @@ const path = require('path');
 
 module.exports = (app, fileLocation) => {
     app.get(
+        '/api/sites/:site', (req, res) => {
+            let file = path.join(fileLocation, req.params.site + '.html');
+            console.log('site --------------------', file)
+            fs.readFile(file, (err, data) => {
+                if (err) {
+                    if (err.code === 'ENOENT') {
+                        console.error('file does not exist or path is incorrect');
+                        throw err;
+                    }
+                };
+                res.send(data)
+            })
+        }
+    );
+
+    app.get(
         '/api/sites/', (req, res) => {
+            console.log('sites *********************************')
             const tempSites = [];
 
             fs.readdirSync(fileLocation).forEach(file => {
@@ -20,18 +37,5 @@ module.exports = (app, fileLocation) => {
             res.send(results)
         });
 
-    app.get(
-        '/api/sites/:site', (req, res) => {
-            let file = path.join(fileLocation, req.params.site + '.html');
-            fs.readFile(file, (err, data) => {
-                if (err) {
-                    if (err.code === 'ENOENT') {
-                        console.error('file does not exist or path is incorrect');
-                        throw err;
-                    }
-                    res.send(data)
-                };
-            })
-        }
-    );
+    
 }
