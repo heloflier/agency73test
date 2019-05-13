@@ -29,7 +29,7 @@ The service should be able to run locally and tested via some tool like cURL
 ## Solutions:
 
 1. 
-On the master branch, 10 preselected sites are being scraped. The html is returned in text files inside a 'files' subdirectory. Note: the data has not been manipulated in any way, as it was not required.
+On the master branch, 10 preselected sites are being scraped. The html is returned in html files inside a 'files' subdirectory. Note: the data has not been manipulated in any way, as it was not required.
 
 To run, type: 
 
