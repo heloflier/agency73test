@@ -1,30 +1,21 @@
-const fs = require('fs');
 const path = require('path');
-const axios = require('axios');
+const express = require('express');
+const logger = require("morgan");
+const bodyParser 	= require("body-parser");
 
-const requestedSites = [
-    "https://rockandice.com/",
-    "https://developer.mozilla.org/en-US",
-    "https://www.youtube.com/watch?v=ywWBy6J5gz8",
-    "https://caniuse.com/",
-    "https://github.com/Giphy/GiphyAPI",
-    "https://www.ted.com/#",
-    "https://www.vitalclimbinggym.com",
-    "https://www.matteolanecomedy.com",
-    "https://www.lastampa.it",
-    "https://www.facebook.com"
-];
+const app = express();
+app.use(logger("dev"));
 
-requestedSites.forEach((site, index) => {
-    axios.get(site)
-        .then(function (response) {
-            let fileDestination = path.join(__dirname, 'files', `${index.toString()}.txt`);
-            fs.writeFile(fileDestination, response.data, (err) => {
-                if (err) throw err;
-                console.log('The file has been saved!', index);
-            });
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-});
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.text());
+app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+
+// load sites
+require('./services/site-load')(__dirname);
+
+require('./routes/routes')(app, path.join(__dirname, 'files'));
+
+const PORT = 3000;
+app.listen(PORT)
+console.log(`"App running on port ${PORT}`);

@@ -18,7 +18,7 @@ In the master branch:
 Add to the existing application and make the application into a REST service
 The service should be able to run locally and tested via some tool like cURL
 
-### 3. React
+#### 3. React
 
 * Create a new branch
 * Create a React application as an interface to specify which 10 websites the user wants to scrape the HTML from.
@@ -34,3 +34,26 @@ On the master branch, 10 preselected sites are being scraped. The html is return
 To run, type: 
 
 ```npm run extract```
+
+2.
+on the 'rest' branch, install package. When testing, the server can be run by typing:
+
+```npm run server```
+
+Then, on the browser, type ```http://localhost:3000/api/sites/``` followed by one of the preselected sites.
+Example:
+
+```http://localhost:3000/api/sites/vitalclimbinggym```
+
+The list of available sites is:
+
+  rock-and-ice
+  youtube
+  mozilla
+  caniuse
+  Giphy
+  ted
+  vitalclimbinggym
+  matteolanecomedy
+  lastampa
+  facebook
