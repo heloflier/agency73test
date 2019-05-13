@@ -4,7 +4,7 @@ Please see below for the sample tests to complete and then send to Patrick at pa
 
 ### Node.js
 
-###### 1. Create a new repo and push to any public service using git
+#### 1. Create a new repo and push to any public service using git
 
 In the master branch:
 
@@ -13,7 +13,7 @@ In the master branch:
 * The files should be in a subfolder in the root of the project 
 * The application should be runnable via a custom npm command
 
-###### 2. Create a new branch
+#### 2. Create a new branch
 
 Add to the existing application and make the application into a REST service
 The service should be able to run locally and tested via some tool like cURL
@@ -35,25 +35,31 @@ To run, type:
 
 ```npm run extract```
 
-2.
+2. 
 on the 'rest' branch, install package. When testing, the server can be run by typing:
 
 ```npm run server```
 
-Then, on the browser, type ```http://localhost:3000/api/sites/``` followed by one of the preselected sites.
+which will restart the server after any change to the code.
+Otherwise, run as previously.
+
+Then, on the browser, type ```http://localhost:3000/api/sites/```.
+This will load ALL the preselected sites. To retrieve just one site, add the name of the site after 
+the previous code.
+
 Example:
 
 ```http://localhost:3000/api/sites/vitalclimbinggym```
 
 The list of available sites is:
 
-  rock-and-ice
-  youtube
-  mozilla
-  caniuse
-  Giphy
-  ted
-  vitalclimbinggym
-  matteolanecomedy
-  lastampa
-  facebook
+* rockandice
+* youtube
+* mozilla
+* caniuse
+* Giphy
+* ted
+* vitalclimbinggym
+* matteolanecomedy
+* lastampa
+* facebook
