@@ -12,9 +12,6 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(logger("dev"));
 
-// load sites
-// require('./services/site-load')(path.join(__dirname, 'files'));
-
 // api routes
 require('./routes/routes')(app, path.join(__dirname, 'files'));
 

@@ -1,0 +1,15 @@
+button {
+    margin: 20px 0 !important;
+}
+
+input {
+    padding: 5px;
+}
+
+.second-input {
+    width: 400px;
+}
+
+.description {
+    margin-top: 20px;
+}

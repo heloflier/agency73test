@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
+import './SiteList.css';
 
 class SiteList extends Component {
     state = {
@@ -18,7 +19,6 @@ class SiteList extends Component {
     }
 
     onUrlChange = index => e => {
-        console.log('on url change')
         const newSites = this.state.sites.map((site, idx) => {
             if (index !== idx) return site;
             return { ...site, url: e.target.value }
@@ -35,19 +35,17 @@ class SiteList extends Component {
     }
 
     fetchSites = () => {
-        console.log(this.state)
         this.state.sites.forEach((site, index) => {
-            console.log('site: ', site)
-            
+
             Axios.post('/api/sites', site)
-            .then(() => {
-                this.setState(() => (site.name = ""));
-                this.setState(() => (site.url = ""));
-            })
-            .catch(error => {
-                this.setState(() => (site.url = "could not retrieve site"));
-                console.log(error);
-            });
+                .then(() => {
+                    this.setState(() => (site.name = ""));
+                    this.setState(() => (site.url = ""));
+                })
+                .catch(error => {
+                    this.setState(() => (site.url = "could not retrieve site"));
+                    console.log(error);
+                });
         })
     }
 
@@ -62,18 +60,18 @@ class SiteList extends Component {
                 <div className="item" key={index}>
                     <div className="content">
                         <div className="description">
+                            <input className="ui input"
+                                type='text'
+                                value={site.name}
+                                onChange={this.onTitleChange(index)}
+                            />
                             <h3>
-                                <input
+                                <input className="ui input second-input"
                                     type='text'
-                                    value={site.name}
-                                    onChange={this.onTitleChange(index)}
+                                    value={site.url}
+                                    onChange={this.onUrlChange(index)}
                                 />
                             </h3>
-                            <input
-                                type='text'
-                                value={site.url}
-                                onChange={this.onUrlChange(index)}
-                            />
                         </div>
                     </div>
                 </div >
@@ -86,7 +84,7 @@ class SiteList extends Component {
             <div>
                 <div className="right floated content">
                     <button
-                        className="ui button primary"
+                        className="ui fluid button primary massive"
                         onClick={(e) => { this.onFormSubmit(e) }}
                     >
                         Scrape all sites now!
