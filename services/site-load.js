@@ -2,10 +2,12 @@ const path = require('path');
 const fs = require('fs');
 const axios = require('axios');
 
-module.exports = (location) => {
-    console.log('loading sites -------------')
+const storeSite = require('./store-site');
 
-    const requestedSites = [
+module.exports = (location) => {
+    // console.log('loading sites at location ------------- ', location)
+
+    const defaultSites = [
         { name: "rockandice", url: "https://rockandice.com/" },
         { name: "mozilla", url: "https://developer.mozilla.org/en-US" },
         { name: "youtube", url: "https://www.youtube.com/watch?v=ywWBy6J5gz8" },
@@ -18,16 +20,10 @@ module.exports = (location) => {
         { name: "facebook", url: "https://www.facebook.com" }    
     ];
     
-    requestedSites.forEach((site, index) => {
-        axios.get(site.url)
-        .then(function (response) {
-            let fileDestination = path.join(location, 'files', `${site.name}.html`);
-            fs.writeFile(fileDestination, response.data, (err) => {
-                if (err) throw err;
-            });
-        })
-        .catch(function (error) {
-            console.log(error);
+    ((sites = defaultSites) => {
+
+        sites.forEach((site) => {
+            storeSite(location, site);
         });
-    });
+    })();
 };

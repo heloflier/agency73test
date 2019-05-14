@@ -63,3 +63,9 @@ The list of available sites is:
 * matteolanecomedy
 * lastampa
 * facebook
+
+3. 
+on the 'react' branch, install package. When testing, both the client and the server can be run concurrently by typing:
+
+```npm run dev```
+
