@@ -11,6 +11,6 @@ require('./services/site-load')(__dirname);
 // api routes
 require('./routes/routes')(app, path.join(__dirname, 'files'));
 
-const PORT = 3000;
+const PORT = 5000;
 app.listen(PORT)
 console.log(`App running on port ${PORT}`);

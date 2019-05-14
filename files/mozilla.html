@@ -117,8 +117,7 @@
 
     (function(win) {
         'use strict';
-
-        (function(){
+            (function(){
   var FLAGS = {
     'kumaediting': false,'page_move': false,'section_edit': false,'spam_checks_enabled': true,'spam_submissions_enabled': false,'spam_admin_override': false,'spam_spammer_override': false,'spam_testing_mode': false,'sg_task_completion': false,'contrib_beta': false,'recurring_payment_beta': false
     },
@@ -147,11 +146,13 @@
   };
 })();
 
-        // This needs to be set before ckeditor.js loads
-        window.CKEDITOR_BASEPATH = 'https://developer.mozilla.org/static/js/libs/ckeditor4/build/ckeditor/';
 
-        // Site configuration
-        win.mdn.ckeditor = {};
+            // This needs to be set before ckeditor.js loads
+            window.CKEDITOR_BASEPATH = 'https://developer.mozilla.org/static/js/libs/ckeditor4/build/ckeditor/';
+
+            // Site configuration
+            win.mdn.ckeditor = {};
+
         win.mdn.features = {};
         win.mdn.siteUrl = 'https://developer.mozilla.org';
         win.mdn.wikiSiteUrl = 'https://wiki.developer.mozilla.org';

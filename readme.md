@@ -43,23 +43,11 @@ on the 'rest' branch, install package. When testing, the server can be run by ty
 which will restart the server after any change to the code.
 Otherwise, run as previously.
 
-Then, on the browser, type ```http://localhost:3000/api/sites/```.
-This will load ALL the preselected sites. To retrieve just one site, add the name of the site after 
-the previous code.
+Then, on the browser, type ```http://localhost:5000/api/sites/```.
+This will store ALL the preselected sites. 
 
-Example:
-
-```http://localhost:3000/api/sites/vitalclimbinggym```
-
-The list of available sites is:
-
-* rockandice
-* youtube
-* mozilla
-* caniuse
-* Giphy
-* ted
-* vitalclimbinggym
-* matteolanecomedy
-* lastampa
-* facebook
+To store just one site, make a POST request to the same address, with an object like this:
+```{ 
+        name: "<your selected name>",
+        url: "<your selected website\'s complete url">
+   }```
