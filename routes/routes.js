@@ -2,6 +2,12 @@ const fs = require('fs');
 const path = require('path');
 
 module.exports = (app, fileLocation) => {
+    // app.get(
+    //     '/', (req, res) => {
+    //             res.send('loading...')
+    //     }
+    // );
+
     app.get(
         '/api/sites/:site', (req, res) => {
             let file = path.join(fileLocation, req.params.site + '.html');
