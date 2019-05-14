@@ -44,28 +44,20 @@ which will restart the server after any change to the code.
 Otherwise, run as previously.
 
 Then, on the browser, type ```http://localhost:3000/api/sites/```.
-This will load ALL the preselected sites. To retrieve just one site, add the name of the site after 
-the previous code.
+This will store ALL the preselected sites. 
 
-Example:
+To store just one site, make a POST request with an object like this:
+```{ 
+        name: "<your selected name>",
+        url: "<your selected website\'s complete url">
+   }```
 
-```http://localhost:3000/api/sites/vitalclimbinggym```
 
-The list of available sites is:
-
-* rockandice
-* youtube
-* mozilla
-* caniuse
-* Giphy
-* ted
-* vitalclimbinggym
-* matteolanecomedy
-* lastampa
-* facebook
-
-3. 
+3.
 on the 'react' branch, install package. When testing, both the client and the server can be run concurrently by typing:
 
 ```npm run dev```
 
+When the browser opens, a pre-populated list of sites are ready to be scraped and stored on the local server's environment.
+Input the name of the website and the complete url, inclusive of http(s)://www. etc.
+The names and descriptions will disappear when they are successfully stored; otherwise, an error message will appear (it may take a while for the request to be returned as an error).
