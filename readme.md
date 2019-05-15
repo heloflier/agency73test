@@ -46,7 +46,6 @@ Note: on start, the previous preselected sites will be stored.
 To store additional sites, one at a time, make a POST request to ```http://localhost:5000/api/sites/```, with an object like this:
 
    { 
-        name: "<your selected name>",
-        url: "<your selected website\'s complete url">
+        name: "<your selected website\'s name>",
+        url: "<your selected website\'s complete url>"
    }
-
