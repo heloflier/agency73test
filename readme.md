@@ -41,19 +41,16 @@ on the 'rest' branch, install package. When testing, the server can be run by ty
 ```npm run server```
 
 which will restart the server after any change to the code.
-Otherwise, run as previously.
+Note: on start, the previous preselected sites will be stored.
 
-Then, on the browser, type ```http://localhost:3000/api/sites/```.
-This will store ALL the preselected sites. 
+To store additional sites, one at a time, make a POST request to ```http://localhost:5000/api/sites/```, with an object like this:
 
-To store just one site, make a POST request with an object like this:
-```{ 
-        name: "<your selected name>",
-        url: "<your selected website\'s complete url">
-   }```
+   { 
+        name: "<yourFilename>",
+        url: "<yourSelectedWebsite\'sCompleteURL">
+   }
 
-
-3.
+3. 
 on the 'react' branch, install package. When testing, both the client and the server can be run concurrently by typing:
 
 ```npm run dev```
