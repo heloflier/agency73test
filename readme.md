@@ -46,12 +46,12 @@ Note: on start, the previous preselected sites will be stored.
 To store additional sites, one at a time, make a POST request to ```http://localhost:5000/api/sites/```, with an object like this:
 
    { 
-        name: "<yourFilename>",
-        url: "<yourSelectedWebsite\'sCompleteURL">
+        name: "<your selected name>",
+        url: "<your selected website\'s complete url>"
    }
 
 3. 
-on the 'react' branch, install package. When testing, both the client and the server can be run concurrently by typing:
+On the 'react' branch, install package. When testing, both the client and the server can be run concurrently by typing:
 
 ```npm run dev```
 
