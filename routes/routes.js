@@ -19,24 +19,24 @@ module.exports = (app, fileLocation) => {
     //     }
     // );
 
-    app.get(
-        '/api/sites/', (req, res) => {
-            console.log('sites *********************************')
-            const tempSites = [];
+    // app.get(
+    //     '/api/sites/', (req, res) => {
+    //         console.log('sites *********************************')
+    //         const tempSites = [];
 
-            fs.readdirSync(fileLocation).forEach(file => {
-                tempSites.push(file);
-            });
+    //         fs.readdirSync(fileLocation).forEach(file => {
+    //             tempSites.push(file);
+    //         });
 
-            // loop over sites in the file directory, read each one.
-            // As we are building an array of objects to be sent back 
-            // to the requestor, the operation has to be synchronous. 
-            const results = tempSites.map(file => {
-                let data = fs.readFileSync(path.join(fileLocation, file))
-                return { name: file.replace('.html', ''), data }
-            });
-            res.send(results)
-        });
+    //         // loop over sites in the file directory, read each one.
+    //         // As we are building an array of objects to be sent back 
+    //         // to the requestor, the operation has to be synchronous. 
+    //         const results = tempSites.map(file => {
+    //             let data = fs.readFileSync(path.join(fileLocation, file))
+    //             return { name: file.replace('.html', ''), data }
+    //         });
+    //         res.send(results)
+    //     });
 
         app.post("/api/sites", function (req, res) {
             axios.get(req.body.url)
